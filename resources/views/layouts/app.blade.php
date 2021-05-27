@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>SoftLand Bootstrap Template - Index</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <title>@yield('title')</title>
+  <meta content="@yield('title')" name="description">
+  <meta content="@yield('metadesc')" name="keywords">
 
   <!-- Favicons -->
   <link href="/assets/img/favicon.png" rel="icon">
@@ -41,7 +41,7 @@
     <div class="container d-flex justify-content-between align-items-center">
 
       <div class="logo">
-        <h1><a href="/">SoftLand</a></h1>
+        <h1><a href="/">Rumah Chord</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>

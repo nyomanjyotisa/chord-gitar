@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+@section('title')
+  Kunci Gitar {{$lagu->judul}} - {{$lagu->artis->artis}} Chord Dasar Rumah Chord
+@endsection
+
+@section('metadesc')
+  Kunci Gitar Lirik Lagu {{Str::limit($lagu->chord, 200)}}
+@endsection
+
 @section('content')
 <main id="main">
 
@@ -36,6 +44,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8 blog-content">
+            <button id="auto_scroll" class="btn btn-sm btn-secondary mt-3">Auto Scroll</button>
             <pre class="text-dark my-5">{{$lagu->chord}}</pre>
             @if(!empty($previous))
                 <a class="btn btn-primary" href="/post/{{$previous->id}}">Previous</a>
@@ -94,4 +103,25 @@
     </section><!-- End CTA Section -->
 
   </main><!-- End #main -->
+  <script>
+	  var my_time;
+		var count = 0;
+		setTimeout('pageScroll()', 1200);
+		function pageScroll() {
+      // If condition to set repeat 
+			if (count < 2) {
+				var objDiv = document.getElementsByTagName("body");
+				objDiv.scrollTop = objDiv.scrollTop + 1;
+				if (objDiv.scrollTop == (objDiv.scrollHeight - 61)) {
+          setTimeout(function() {
+						objDiv.scrollTop = 0;
+						count++;
+            }, 1200);
+				}
+        //set scrolling time start
+				my_time = setTimeout('pageScroll()', 10);
+        //set scrolling time end
+			}
+		}
+  </script>
 @endsection
